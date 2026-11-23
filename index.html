@@ -1,206 +1,559 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff0f4">
-<title>Untuk Sayang — Happy Birthday ♡</title>
+<title>Happy Birthday Sayang ♡</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-:root{--pink:#e9a8ba;--deep:#a95776;--soft:#fff0f4;--gold:#c9a66b;--ink:#63394b}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#fff7f8;color:#63394b;font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
-button{font:inherit}
-.bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 50% 0%,#ffe4eb 0%,#f8d5df 48%,#f5e9e9 100%)}
-.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.10;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
-.screen{min-height:100svh;display:grid;place-items:center;padding:26px 16px}
-.intro{text-align:center;width:min(580px,100%)}
-.kicker{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:#a97861}
-.intro h1,.headline,.section-title{font-family:'Playfair Display',serif;font-weight:400}
-.intro h1{font-size:clamp(39px,8vw,66px);line-height:1.1;margin:20px 0 10px;color:#74465a}
-.intro h1 em,.headline em{color:#c87996}
-.intro p{color:#946879;font-size:14px;letter-spacing:.04em}
-.envelope-wrap{height:245px;display:grid;place-items:center;perspective:900px;margin:22px auto 5px}
-.envelope{position:relative;width:min(300px,82vw);height:185px;cursor:pointer;filter:drop-shadow(0 22px 25px #9c617344);transition:transform .4s}
-.envelope:hover{transform:translateY(-5px)}
-.env-back{position:absolute;inset:0;background:#e7a9bc;border-radius:5px}
-.env-letter{position:absolute;left:8%;top:8%;width:84%;height:82%;background:#fffaf5;color:#89566b;display:grid;place-items:center;text-align:center;padding:15px;font-family:'Playfair Display',serif;font-style:italic;transition:transform .8s;z-index:1}
-.env-letter span{font-size:25px}
-.env-front{position:absolute;inset:0;background:linear-gradient(145deg,#f2c4d0,#d987a2);clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%);z-index:3}
-.env-flap{position:absolute;inset:0;background:#f8d9e1;clip-path:polygon(0 0,100% 0,50% 60%);transform-origin:top;transition:transform .75s;z-index:4}
-.seal{position:absolute;z-index:5;left:50%;top:54%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:#b96784;color:#fff4f6;display:grid;place-items:center;font-size:22px;box-shadow:0 3px 10px #9c526c55;transition:opacity .3s}
-.envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
-.envelope.open .env-letter{transform:translateY(-95px);z-index:2}
-.envelope.open .seal{opacity:0}
-.hint{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a56c82;animation:pulse 1.8s infinite}
-@keyframes pulse{50%{opacity:.45}}
-#main{display:none;padding:35px 16px 80px}
-#main.visible{display:block;animation:appear 1s both}
-@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.card{position:relative;width:min(760px,100%);margin:auto;text-align:center;padding:clamp(30px,6vw,65px) clamp(20px,6vw,60px);border:1px solid #d7a5b466;border-radius:22px;background:linear-gradient(145deg,#ffffffc9,#fff9faad);box-shadow:0 25px 90px #b8798a2b;backdrop-filter:blur(9px);overflow:hidden}
-.card:before{content:"";position:absolute;inset:9px;border:1px solid #d7a5b444;border-radius:15px;pointer-events:none}
-.headline{font-size:clamp(46px,9vw,78px);line-height:1.02;margin:18px 0 8px;color:#704459}
-.subtitle{font-family:'Playfair Display',serif;font-style:italic;color:#a66d83;font-size:18px}
-.rule{width:65px;height:1px;background:var(--gold);margin:25px auto;opacity:.8}
-.photo-frame{width:min(340px,80%);margin:28px auto 25px;position:relative;padding:9px;border:1px solid #c9a66b99;border-radius:180px 180px 14px 14px;background:#fff9fa}
-.photo-frame img{display:block;width:100%;height:340px;object-fit:cover;border-radius:180px 180px 8px 8px}
-.photo-caption{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a97861;margin-top:12px}
-.message{max-width:550px;margin:auto;font-family:'Playfair Display',serif;font-size:clamp(16px,2.6vw,19px);line-height:2;color:#704b5b}
-.message strong{font-weight:400;color:#b45f7d}
-.signature{font-family:'Playfair Display',serif;font-style:italic;color:#ae8054;font-size:23px;margin-top:27px}
-.btn{border:1px solid #c9a66b99;background:#d98da6;color:#fff;padding:13px 22px;border-radius:30px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.25s;margin:8px}
-.btn:hover{transform:translateY(-2px);background:#c87894}
-.btn.ghost{background:transparent;color:#a45c78;border-color:#d69bad}
-.secret{display:none;max-width:490px;margin:22px auto 0;color:#a65375;line-height:1.95;font-family:'Playfair Display',serif;font-style:italic;font-size:18px}
-.secret.show{display:block;animation:appear .8s both}
-.section-title{font-size:34px;margin:60px 0 8px;color:#704459}
-.section-sub{font-size:12px;color:#a16d80;letter-spacing:.08em}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:590px;margin:25px auto}
-.gallery img{width:100%;height:180px;object-fit:cover;border-radius:9px;border:1px solid #d7a5b477;filter:saturate(.85)}
-.cake-area{margin:28px auto 0;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:end}
-.cake{position:relative;width:190px;height:105px;background:linear-gradient(#f8d5dc 0 18%,#d98da6 18% 100%);border-radius:12px 12px 18px 18px;box-shadow:inset 0 -9px #b96784,0 15px 25px #b8798a33}
-.cake:before{content:"";position:absolute;top:-10px;left:0;width:100%;height:25px;background:#fff8f0;border-radius:50%;box-shadow:inset 0 -5px #efc4ce}
-.candle{position:absolute;left:50%;top:-62px;transform:translateX(-50%);width:9px;height:54px;border-radius:3px;background:repeating-linear-gradient(45deg,#fff8ec 0 7px,#d98da6 7px 12px)}
-.flame{position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:17px;height:25px;background:radial-gradient(ellipse at 50% 70%,#fff5b6 0 18%,#ffc65c 42%,#f07845 72%,transparent 73%);border-radius:50% 50% 45% 45%;filter:drop-shadow(0 0 9px #ffbd58);animation:flicker .7s infinite alternate}
-.flame.out{display:none}
-@keyframes flicker{to{transform:translateX(-50%) rotate(5deg) scale(.9)}}
-.footer{margin-top:48px;font-size:10px;letter-spacing:.2em;color:#ad8291}
-.petal{position:fixed;top:-30px;z-index:5;pointer-events:none;color:#d982a0;animation:fall linear forwards}
-@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(650deg);opacity:.05}}
-@media(max-width:520px){.gallery{gap:7px}.gallery img{height:125px}.photo-frame img{height:290px}.section-title{margin-top:45px}.envelope-wrap{height:220px}}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(135deg,#fff0f4,#f8d5df,#fcebed);
+    color: #704459;
+    overflow-x: hidden;
+}
+
+button { cursor: pointer; font: inherit; }
+
+/* OPENING */
+
+.intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.kicker {
+    letter-spacing: 5px;
+    font-size: 11px;
+    color: #a97861;
+    text-transform: uppercase;
+}
+
+.intro h1 {
+    font-family: 'Playfair Display',serif;
+    font-size: clamp(40px,8vw,65px);
+    margin: 25px 0;
+}
+
+.intro h1 em { color: #c87996; }
+
+.intro p {
+    color: #946879;
+    font-size: 14px;
+}
+
+.envelope {
+    width: 280px;
+    height: 175px;
+    background: #e7a9bc;
+    margin: 55px auto 30px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px #b8798a55;
+}
+
+.envelope::before {
+    content: "♡";
+    position: absolute;
+    z-index: 3;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: #b96784;
+    color: white;
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #f8d9e1;
+    clip-path: polygon(0 0,100% 0,50% 60%);
+    transform-origin: top;
+    transition: .8s;
+}
+
+.envelope.open::after {
+    transform: rotateX(180deg);
+}
+
+/* MAIN */
+
+#birthday {
+    display: none;
+    padding: 40px 15px;
+}
+
+.card {
+    max-width: 750px;
+    margin: auto;
+    padding: 55px 30px;
+    text-align: center;
+    border: 1px solid #d7a5b4;
+    border-radius: 20px;
+    background: #ffffffbd;
+    box-shadow: 0 20px 60px #b8798a33;
+}
+
+.headline {
+    font-family: 'Playfair Display',serif;
+    font-size: clamp(45px,9vw,75px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.headline em { color: #c87996; }
+
+.subtitle {
+    font-family: 'Playfair Display',serif;
+    font-style: italic;
+    color: #a66d83;
+}
+
+.photo {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 150px 150px 10px 10px;
+    border: 5px solid white;
+    outline: 1px solid #d7a5b4;
+    margin: 35px auto;
+}
+
+.message {
+    max-width: 550px;
+    margin: auto;
+    font-family: 'Playfair Display',serif;
+    font-size: 18px;
+    line-height: 2;
+    color: #704b5b;
+}
+
+.message strong { color: #b45f7d; font-weight: normal; }
+
+.signature {
+    margin-top: 30px;
+    font-family: 'Playfair Display',serif;
+    font-style: italic;
+    color: #ae8054;
+    font-size: 23px;
+}
+
+button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #d98da6;
+    color: white;
+    letter-spacing: 1px;
+    margin: 25px 5px 0;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: #c87894;
+}
+
+.secret {
+    display: none;
+    margin: 25px auto;
+    max-width: 480px;
+    color: #a65375;
+    font-family: 'Playfair Display',serif;
+    font-style: italic;
+    line-height: 1.9;
+    font-size: 18px;
+}
+
+.secret.show { display: block; }
+
+/* GALLERY */
+
+.section-title {
+    font-family: 'Playfair Display',serif;
+    font-size: 32px;
+    font-weight: normal;
+    margin-top: 60px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin: 30px auto;
+    max-width: 550px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* BIRTHDAY CAKE */
+
+.cake-area {
+    margin: 70px auto 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cake {
+    width: 180px;
+    height: 100px;
+    background: linear-gradient(#f8d5dc 20%,#d98da6 20%);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: inset 0 -8px #b96784;
+}
+
+.cake::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 25px;
+    background: #fff8f0;
+    border-radius: 50%;
+}
+
+.candle {
+    position: absolute;
+    width: 9px;
+    height: 55px;
+    background: repeating-linear-gradient(45deg,white 0 7px,#d98da6 7px 12px);
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flame {
+    position: absolute;
+    top: -25px;
+    left: -4px;
+    width: 17px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffbb4e;
+    box-shadow: 0 0 15px #ffbb4e;
+    animation: flicker .5s infinite alternate;
+}
+
+.flame.out { display: none; }
+
+@keyframes flicker {
+    to { transform: scale(.8); }
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    top: -30px;
+    color: #d982a0;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(500deg);
+        opacity: 0;
+    }
+}
+
+.footer {
+    margin-top: 50px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #ad8291;
+}
+
+@media(max-width:500px) {
+    .card { padding: 40px 20px; }
+    .gallery img { height: 110px; }
+    .message { font-size: 16px; }
+}
 </style>
 </head>
+
 <body>
-<div class="bg"></div><div class="grain"></div>
 
-<section class="screen" id="intro">
-  <div class="intro">
+<!-- BACKGROUND -->
+<div class="intro" id="intro">
+
     <div class="kicker">A little surprise, made with love</div>
-    <h1>A letter<br><em>for Sayang</em></h1>
+
+    <h1>A Letter<br><em>For Sayang</em></h1>
+
     <p>Ada doa dan kata-kata yang kusimpan khusus untukmu...</p>
-    <div class="envelope-wrap">
-      <div class="envelope" id="envelope" onclick="openLetter()" role="button" aria-label="Buka amplop">
-        <div class="env-back"></div>
-        <div class="env-letter"><span>Untuk Sayang,<br>yang selalu istimewa ♡</span></div>
-        <div class="env-front"></div><div class="env-flap"></div><div class="seal">♡</div>
-      </div>
-    </div>
-    <div class="hint" id="hint">Sentuh amplop untuk membuka</div>
-  </div>
-</section>
 
-<main id="main">
-  <section class="card">
+    <div class="envelope" id="envelope" onclick="openLetter()"></div>
+
+    <p>Sentuh amplop untuk membuka ♡</p>
+
+</div>
+
+<!-- BIRTHDAY CONTENT -->
+<main id="birthday">
+
+<div class="card">
+
     <div class="kicker">A day as lovely as you</div>
-    <h1 class="headline">Happy<br><em>Birthday</em></h1>
-    <div class="subtitle">Untuk Sayang, dengan seluruh cinta dari sayang ♡</div>
 
-    <div class="photo-frame">
-      <!-- Ganti URL foto ini dengan foto Sayang atau foto kalian berdua -->
-      <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=85" alt="Buket bunga merah muda">
-      <div class="photo-caption">A beautiful soul deserves a beautiful day</div>
-    </div>
+    <h1 class="headline">
+        Happy<br><em>Birthday</em>
+    </h1>
 
-    <div class="rule"></div>
+    <p class="subtitle">
+        Untuk Sayang, dengan seluruh cinta dari sayang ♡
+    </p>
+
+    <!-- FOTO UTAMA -->
+    <img class="photo"
+    src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800"
+    alt="Romantic flowers">
+
     <div class="message">
-      Di antara begitu banyak hari yang datang dan pergi, hari ini selalu punya tempat yang istimewa. Sebab pada hari inilah seseorang seindah dirimu hadir, membawa warna bagi dunia dan kehangatan bagi hati.
-      <br><br>
-      Semoga usia yang bertambah menjadi jalan menuju lebih banyak bahagia. Semoga langkahmu selalu menemukan arah, lelahmu berujung lega, dan doa-doa yang diam-diam kau langitkan satu per satu menjelma nyata.
-      <br><br>
-      Jika kelak hari terasa berat, semoga kau selalu ingat bahwa dirimu berharga, lebih dari yang mampu dijelaskan kata-kata. Jangan pernah kehilangan cahaya kecil yang membuatmu menjadi dirimu sendiri.
-      <br><br>
-      <strong>Selamat bertambah usia, Sayang. Semoga semesta selalu punya cara untuk memelukmu dengan kebaikan. Dan semoga aku masih diberi waktu untuk menemani banyak cerita, merayakan tawamu, serta mencintaimu dalam hal-hal sederhana.</strong>
-    </div>
-    <div class="signature">Dengan cinta, sayang ♡</div>
 
-    <div style="margin-top:22px">
-      <button class="btn" onclick="toggleSecret()">Buka pesan rahasia</button>
-      <button class="btn ghost" onclick="makeItRain()">Kirim cinta ♡</button>
+        Di antara begitu banyak hari yang datang dan pergi,
+        hari ini selalu punya tempat yang istimewa.
+
+        Sebab pada hari inilah seseorang seindah dirimu hadir,
+        membawa warna bagi dunia dan kehangatan bagi hati.
+
+        <br><br>
+
+        Semoga usia yang bertambah menjadi jalan menuju
+        lebih banyak bahagia. Semoga langkahmu selalu
+        menemukan arah, lelahmu berujung lega, dan doa-doa
+        yang diam-diam kau langitkan satu per satu menjelma nyata.
+
+        <br><br>
+
+        Jika kelak hari terasa berat, semoga kau selalu ingat
+        bahwa dirimu berharga, lebih dari yang mampu
+        dijelaskan kata-kata.
+
+        <br><br>
+
+        <strong>
+        Selamat bertambah usia, Sayang.
+        Semoga semesta selalu punya cara untuk memelukmu
+        dengan kebaikan. Dan semoga aku masih diberi waktu
+        untuk menemani banyak cerita, merayakan tawamu,
+        serta mencintaimu dalam hal-hal sederhana.
+        </strong>
+
     </div>
+
+    <div class="signature">
+        Dengan cinta, sayang ♡
+    </div>
+
+    <button onclick="toggleSecret()">
+        BUKA PESAN RAHASIA
+    </button>
+
+    <button onclick="makeItRain()">
+        KIRIM CINTA ♡
+    </button>
+
     <div class="secret" id="secret">
-      Untuk Sayang: semoga bahagiamu tak hanya singgah hari ini, tetapi tumbuh dan tinggal di setiap musim hidupmu. Terima kasih sudah menjadi bagian indah dari cerita ini. Aku sayang kamu. ♡
+        Untuk Sayang: semoga bahagiamu tak hanya singgah
+        hari ini, tetapi tumbuh dan tinggal di setiap musim
+        hidupmu.
+
+        Terima kasih sudah menjadi bagian indah dari cerita ini.
+
+        <br><br>
+
+        Aku sayang kamu. ♡
     </div>
 
-    <h2 class="section-title">Little moments, big love</h2>
-    <p class="section-sub">Ganti foto-foto ini dengan kenangan terindah kalian</p>
+    <!-- GALLERY -->
+    <h2 class="section-title">Little Moments, Big Love</h2>
+
+    <p>Ganti foto-foto ini dengan kenangan terindah kalian.</p>
+
     <div class="gallery">
-      <!-- Ganti URL berikut dengan foto kenangan kalian -->
-      <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=500&q=80" alt="Kenangan pertama">
-      <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80" alt="Kenangan kedua">
-      <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=500&q=80" alt="Kenangan ketiga">
+
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500"
+        alt="Kenangan 1">
+
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500"
+        alt="Kenangan 2">
+
+        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=500"
+        alt="Kenangan 3">
+
     </div>
 
-    <h2 class="section-title">Make a wish</h2>
-    <p class="section-sub">Pejamkan mata, titipkan harapan, lalu tiup lilinnya.</p>
+    <!-- CAKE -->
+    <h2 class="section-title">Make A Wish</h2>
+
+    <p>Pejamkan mata, titipkan harapan, lalu tiup lilinnya.</p>
+
     <div class="cake-area">
-      <div class="cake"><div class="candle"><div class="flame" id="flame"></div></div></div>
-    </div>
-    <button class="btn" onclick="blowCandle()">Tiup lilinnya ✨</button>
-    <p id="wishText" class="section-sub" style="margin-top:12px"></p>
 
-    <div class="footer">MADE WITH LOVE · FROM SAYANG, FOR SAYANG</div>
-  </section>
+        <div class="cake">
+
+            <div class="candle">
+                <div class="flame" id="flame"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button onclick="blowCandle()">
+        TIUP LILIN ✨
+    </button>
+
+    <p id="wishText"></p>
+
+    <div class="footer">
+        MADE WITH LOVE · FROM SAYANG, FOR SAYANG
+    </div>
+
+</div>
 </main>
 
-<!-- Untuk musik, simpan file bernama romantic.mp3 di folder yang sama dengan index.html -->
-<audio id="music" loop preload="none"><source src="romantic.mp3" type="audio/mpeg"></audio>
-<button id="musicBtn" class="btn" style="position:fixed;right:14px;bottom:14px;z-index:10;margin:0;display:none" onclick="toggleMusic()">♫ Musik: Play</button>
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn"
+style="position:fixed;bottom:15px;right:15px;display:none"
+onclick="toggleMusic()">
+♫ MUSIC PLAY
+</button>
 
 <script>
+
 let opened = false;
 
-function openLetter(){
-  if(opened) return;
-  opened = true;
-  document.getElementById('envelope').classList.add('open');
-  document.getElementById('hint').textContent = 'Sebuah pesan kecil, sepenuh hati ♡';
-  setTimeout(()=>{
-    document.getElementById('intro').style.display='none';
-    document.getElementById('main').classList.add('visible');
-    document.getElementById('musicBtn').style.display='block';
-    document.getElementById('music').play().catch(()=>{});
+// OPEN LETTER
+function openLetter() {
+
+    if(opened) return;
+
+    opened = true;
+
+    document.getElementById("envelope").classList.add("open");
+
+    setTimeout(function() {
+
+        document.getElementById("intro").style.display = "none";
+
+        document.getElementById("birthday").style.display = "block";
+
+        document.getElementById("musicBtn").style.display = "block";
+
+        document.getElementById("music").play().catch(()=>{});
+
+        makeItRain();
+
+    },1000);
+
+}
+
+// SECRET MESSAGE
+function toggleSecret() {
+
+    document.getElementById("secret").classList.toggle("show");
+
+}
+
+// HEART AND FLOWER ANIMATION
+function makeItRain() {
+
+    const symbols = ["♡","♥","✿","❀"];
+
+    for(let i=0;i<35;i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = symbols[
+            Math.floor(Math.random()*symbols.length)
+        ];
+
+        heart.style.left = Math.random()*100+"vw";
+
+        heart.style.fontSize = (15+Math.random()*20)+"px";
+
+        heart.style.animationDuration = (5+Math.random()*6)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>heart.remove(),12000);
+
+    }
+
+}
+
+// BLOW CANDLE
+function blowCandle() {
+
+    document.getElementById("flame").classList.add("out");
+
+    document.getElementById("wishText").innerHTML =
+    "Semoga setiap harapan baikmu menemukan jalannya. ♡";
+
     makeItRain();
-  },1100);
+
 }
 
-function toggleSecret(){
-  document.getElementById('secret').classList.toggle('show');
+// MUSIC
+function toggleMusic() {
+
+    let music = document.getElementById("music");
+
+    let btn = document.getElementById("musicBtn");
+
+    if(music.paused) {
+
+        music.play();
+
+        btn.innerHTML = "♫ MUSIC PAUSE";
+
+    } else {
+
+        music.pause();
+
+        btn.innerHTML = "♫ MUSIC PLAY";
+
+    }
+
 }
 
-function makeItRain(){
-  const symbols=['♡','♥','✿','❀'];
-  for(let i=0;i<32;i++){
-    const p=document.createElement('span');
-    p.className='petal';
-    p.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-    p.style.left=Math.random()*100+'vw';
-    p.style.fontSize=(12+Math.random()*19)+'px';
-    p.style.setProperty('--drift',(Math.random()*180-90)+'px');
-    p.style.animationDuration=(5+Math.random()*6)+'s';
-    p.style.animationDelay=(Math.random()*1.5)+'s';
-    document.body.appendChild(p);
-    setTimeout(()=>p.remove(),12000);
-  }
-}
-
-function blowCandle(){
-  document.getElementById('flame').classList.add('out');
-  document.getElementById('wishText').textContent='Semoga setiap harapan baikmu menemukan jalannya. ♡';
-  makeItRain();
-}
-
-function toggleMusic(){
-  const music=document.getElementById('music');
-  const btn=document.getElementById('musicBtn');
-  if(music.paused){
-    music.play().then(()=>btn.textContent='♫ Musik: Pause')
-      .catch(()=>btn.textContent='♫ Tambahkan romantic.mp3');
-  }else{
-    music.pause();
-    btn.textContent='♫ Musik: Play';
-  }
-}
 </script>
+
 </body>
 </html>
